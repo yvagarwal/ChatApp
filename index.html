@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatting_webApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to the chat!</h1>
+    <div class = "container"></div>
+    <div class = "send">
+        <form action="" id="sender">
+                <input type="text" name="inp" id="inp">
+                <button class="btn" type="submit">Send</button>
+        </form>
+        <button id="bold" onclick="boldFunc()">
+            B
+        </button>
+        <button id="italic" onclick="italicFunc()">
+            I
+        </button>
+        <button id="strike" onclick="strikefunc()">
+            Strike
+        </button>
+    </div>
+    <script>
+         let messagestyl = document.getElementById('inp').style;
+        function italicFunc(){
+            let italicBtn=document.getElementById('italic').style;
+            if(messagestyl.fontStyle==="italic"){
+                messagestyl.fontStyle="normal"
+                italicBtn.border="0px solid black"
+            }
+            else{
+                italicBtn.border="5px solid black"
+                messagestyl.fontStyle="italic"
+            }
+        }
+        function strikefunc(){
+            let strikeBtn=document.getElementById('strike').style;
+            if(messagestyl.textDecoration=="line-through"){
+                messagestyl.textDecoration="none"
+                strikeBtn.border="0px solid black"
+            }
+            else{
+                strikeBtn.border="5px solid black"
+                messagestyl.textDecoration="line-through"
+            }
+        }
+        function boldFunc(){
+            let boldBtn=document.getElementById('bold').style;
+            if(messagestyl.fontWeight ==="bold"){
+                boldBtn.border="0px black solid";
+                messagestyl.fontWeight ="normal"}
+            else{
+                boldBtn.border="5px black solid";
+                messagestyl.fontWeight ="bold"}
+        }
+    </script>
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script defer src="client.js"> </script>
+</body>
+</html>
